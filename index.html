@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Proyecto Final - Javascript</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+<img src="img/Logotipo_de_la_Ciudad_de_Buenos_Aires.svg.png" width="250" alt="Logo GCBA">
+<h1>Solicitud de turnos</h1>
+<!--Formulario inicial - Paso 1-->
+    <div id="form1">
+    <form action=""class="formulario">
+      <h2 class="formulario__titulo">Paso 1</h2>
+      <input type="text" class="formulario__input" id="paciente">
+      <label for="" class="formulario__label">Nombre y Apellido</label>
+      <input type="number" class="formulario__input" id="dni">
+      <label for="" class="formulario__label">DNI</label>
+    <div class="container">
+        <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input
+              type="radio"
+              class="radio"
+              id=""
+              name="category"
+            />
+            <label for="">Medico Clinico</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">Endocrinologia y Metabolismo</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">Cardiologia</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">Pediatria</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">Odontologia</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">Radiografia</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">Ginecologia</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">Neurologia</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="" name="category" />
+            <label for="">COVID19</label>
+          </div>
+        </div>
+        <div class="selected">
+          Seleccione especialidad
+        </div>
+      </div>
+    </div>
+  <div><button class="formulario__submit" id="boton" onclick="capturarDatos1()">Siguiente</button></div>
+  </form>
+</div>
+<!--Paso 2 - seleccion de disponibilidad -->
+
+<div id="form2">
+  <form action="" id="form2" class="formulario2">
+    <h2 class="formulario__titulo">Paso 2</h2>
+<label for="" class="formulario_label">Seleccione el hospital</label>
+
+<select name="Hospital" class="hospital-seleccion" onchange="selectHospital()" id="idHospital">
+  <option value="Hospital Dr. T. Alvarez">Hospital Dr. T. Alvarez</option>
+  <option value="Hospital Dr. C. Argerich">Hospital Dr. C. Argerich</option>
+  <option value="Hospital Dr. C. Durand">Hospital Dr. C. Durand</option>
+  <option value="Hospital Dr. J.A. Fernandez">Hospital Dr. J.A. Fernandez</option>
+  <option value="Hospital Dra. Cecilia Gierson">Hospital Dra. Cecilia Gierson</option>
+  <option value="Hospital J.M. Penna">Hospital J.M. Penna</option>
+  <option value="Hospital P. Piñero">Hospital P. Piñero</option>
+  <option value="Hospital Dr. I. Pirovano">Hospital Dr. I. Pirovano</option>
+  <option value="Hospital J.M. Ramos Mejia">Hospital J.M. Ramos Mejia</option>
+  <option value="Hospital B. Rivadavia">Hospital B. Rivadavia</option>
+  <option value="Hospital D. Velez Sarfield">Hospital D. Velez Sarfield</option>
+</select><br>
+
+<label for="" class="formulario_label">Seleccione el horario</label>
+<select name="horario" class="horario-seleccion" id="idHorario" onchange="selectHospital()">
+  <option value="8:00">8:00</option>
+  <option value="9:00">9:00</option>
+  <option value="10:00">10:00</option>
+  <option value="11:00">11:00</option>
+  <option value="12:00">12:00</option>
+  <option value="13:00">13:00</option>
+  <option value="14:00">14:00</option>
+  <option value="15:00">15:00</option>
+  <option value="16:00">16:00</option>
+  <option value="17:00">17:00</option>
+  <option value="18:00">18:00</option>
+</select>
+<button class="formulario__submit" id="finalizar">Finalizar</button>
+</form>
+</div>
+
+<!--Finalización Confirmación-->
+
+<div class="formulario3">
+<div>
+<h2 class="formulario__titulo">Confirmación turno</h2>
+<div class="confirm"><p>Paciente: <label id="paciente_inner"></label></p></div>
+<div class="confirm"><p>DNI: <label id="dni_inner" ></label> </p></div>
+<div class="confirm">Tiene turno en: <label id="hospital_inner"></label> </div>
+<div class="confirm"> Horario: <label id="horario_inner"></label> </div>
+<button class="formulario__submit" id="terminar">Terminar</button>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+  </body>
+</html>
