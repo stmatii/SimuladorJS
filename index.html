@@ -86,8 +86,8 @@
     <h2 class="formulario__titulo">Paso 2</h2>
 <label for="" class="formulario_label">Seleccione el hospital</label>
 
-<select name="Hospital" class="hospital-seleccion" onchange="selectHospital()" id="idHospital">
-  <option value="Hospital Dr. T. Alvarez">Hospital Dr. T. Alvarez</option>
+<select name="Hospital" class="hospital-seleccion" onchange="selectHospital()" onclick="traerDatos()" id="idHospital">
+  <!-- <option value="Hospital Dr. T. Alvarez">Hospital Dr. T. Alvarez</option>
   <option value="Hospital Dr. C. Argerich">Hospital Dr. C. Argerich</option>
   <option value="Hospital Dr. C. Durand">Hospital Dr. C. Durand</option>
   <option value="Hospital Dr. J.A. Fernandez">Hospital Dr. J.A. Fernandez</option>
@@ -97,8 +97,14 @@
   <option value="Hospital Dr. I. Pirovano">Hospital Dr. I. Pirovano</option>
   <option value="Hospital J.M. Ramos Mejia">Hospital J.M. Ramos Mejia</option>
   <option value="Hospital B. Rivadavia">Hospital B. Rivadavia</option>
-  <option value="Hospital D. Velez Sarfield">Hospital D. Velez Sarfield</option>
+  <option value="Hospital D. Velez Sarfield">Hospital D. Velez Sarfield</option> -->
 </select><br>
+
+<label for="start" class="formulario_label">Seleccione fecha</label>
+
+<input type="date" id="fecha" name="fecha"
+       value="2021-10-01"
+       min="2021-01-01" max="2022-12-31" class="fecha-seleccion" onchange="selectHospital()"><br>
 
 <label for="" class="formulario_label">Seleccione el horario</label>
 <select name="horario" class="horario-seleccion" id="idHorario" onchange="selectHospital()">
@@ -126,7 +132,7 @@
 <div class="confirm"><p>Paciente: <label id="paciente_inner"></label></p></div>
 <div class="confirm"><p>DNI: <label id="dni_inner" ></label> </p></div>
 <div class="confirm">Tiene turno en: <label id="hospital_inner"></label> </div>
-<div class="confirm"> Horario: <label id="horario_inner"></label> </div>
+<div class="confirm"> Horario: <label id="horario_inner"></label> <label id="fecha_inner"></label> </div>
 <button class="formulario__submit" id="terminar">Terminar</button>
 </div>
 </div>

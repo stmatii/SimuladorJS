@@ -37,7 +37,17 @@ const capturarDatos1 = () => {
   const dni = document.getElementById("dni").value;
   document.getElementById("paciente_inner").innerHTML = paciente;
   document.getElementById("dni_inner").innerHTML = dni;
+
+  var usuario1 = new Object()
+  usuario1.nombre = paciente;
+  usuario1.dni = dni;
+
+  const usuario1Json = JSON.stringify(usuario1)
+  localStorage.setItem('paciente', usuario1Json);
+  console.log(usuario1Json)
 }
+
+
 
 function selectHospital() {
     const hospital = document.getElementById("idHospital").value;
@@ -45,6 +55,41 @@ function selectHospital() {
 
     const horario = document.getElementById("idHorario").value;
     document.getElementById("horario_inner").innerHTML = horario;
+
+    var fecha = $('#fecha').val();
+    document.getElementById("fecha_inner").innerHTML = fecha;
+
+    var usuario = new Object ();
+    usuario.hospital = hospital;
+    usuario.fecha = fecha;
+
+    const usuarioJson = JSON.stringify(usuario)
+    
+    localStorage.setItem('paciten1', usuarioJson);
+    console.log(usuarioJson)
+  }
+
+// Uso de AJAX y JSON
+
+document.querySelector('#idHospital').addEventListener('click', traerDatos);
+  function traerDatos(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'hospitales.json',true);
+    xhttp.send();
+    
+    xhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+    let datos = JSON.parse(this.responseText);
+
+    let res = document.querySelector('#idHospital');
+
+  
+    for(let item of datos){
+      var opt = document.createElement('option');
+      opt.innerHTML += `${item.Establecimiento}`
+      res.appendChild(opt);
+    }
+  } }
 }
 
 //Animaciones
@@ -70,6 +115,5 @@ $("#terminar").on("click", function(e){
   $(".formulario3").fadeOut(1000);
   $(".formulario").fadeIn(1000)
 })
-
 
 
